@@ -1,0 +1,26 @@
+{
+  "name": "mdn-temp",
+  "version": "1.0.0",
+  "description": "Template builder for rapidly creating MDN pages.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpmedley/mdn-temp.git"
+  },
+  "keywords": [
+    "MDN",
+    "Mozilla",
+    "IDL"
+  ],
+  "author": "Joseph Medley <jmedley@google.com> (https://developers.google.com/web)",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/jpmedley/mdn-temp/issues"
+  },
+  "homepage": "https://github.com/jpmedley/mdn-temp#readme"
+}
