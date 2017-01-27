@@ -43,7 +43,7 @@ Interface.prototype.Properties = function() {
 	var properties = [];
 	for (var i = 0; i < this.tree[0].members.length; i++) {
 		if (this.tree[0].members[i].type == 'attribute') {
-			properties.push(this.tree[0].members);
+			properties.push(this.tree[0].members[i]);
 		}
 	}
 	return properties;

@@ -4,9 +4,8 @@ var idl = require('./idl');
 
 function testSetup() {
 	var idlFile = 'in/MediaMetadata.idl';
-	return new idl('in/MediaMetadata.idl')
+	return new idl.Interface('in/MediaMetadata.idl')
 		.then(function(idl) {
-			console.log(idl);
 			return idl;
 		});
 }
@@ -16,8 +15,8 @@ function test_constructor() {
 		.then(function(idl) {
 			console.log(idl.Constructor());
 		})
-		.catch(function(r) {
-			console.log(r);
+		.catch(function(e) {
+			console.log(e);
 		});
 }
 
@@ -26,8 +25,8 @@ function test_properties() {
 		.then(function(idl) {
 			console.log(idl.Properties());
 		})
-		.catch(function(r) {
-			console.log(r);
+		.catch(function(e) {
+			console.log(e);
 		})
 }
 
