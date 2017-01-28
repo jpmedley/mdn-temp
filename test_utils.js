@@ -3,13 +3,17 @@
 var utils = require('./utils');
 
 function test_getQuestions() {
-	var temp_path = 'templates/interface.marko';
-	utils.getQuestions(temp_path)
+	// var temp_path = 'templates/interface.marko';
+	// utils.getQuestions(temp_path)
+	utils.getQuestions()
 		.then(function(questions) {
 			for (var q in questions) {
 				console.log(questions[q][0]);
 				console.log("\t" + questions[q][1]);
 			}
+		})
+		.catch(e => {
+			console.log(e);
 		});
 }
 

@@ -1,0 +1,11 @@
+<!-- data.sh_overview-page-name; What is the name of the MDN overview page? -->
+<!-- data.sh_interface; what is the formal name of the interface? -->
+<!-- data.sh_overview-page-link; What is the slug of the MDN overview page? -->
+<!-- data.constructor; Does this interface have a constructor? Yes or No? -->
+<!-- data.properties; Does this interface have any properties? Type a comma-separated list. -->
+<!-- data.events; Does this interface have any event handlers? Type a comma-separated list. -->
+<!-- data.methods; Does this interface have any methods? Type a comma-separated list. -->
+<!-- data.sh_mdn-spec-name; What is the name passed to the MDN SpecName() and spec2() macros? -->
+<!-- data.member-link; What is the path anchor for this inverface in the W3C spec? -->
+<!-- data.sh_chrome-version; Which Chrome version will this ship in? -->
+<!-- data.sh_opera-version; Which Opera version will this ship in? -->
