@@ -9,3 +9,8 @@
 <!-- data.member-link; What is the path anchor for this inverface in the W3C spec? -->
 <!-- data.sh_chrome-version; Which Chrome version will this ship in? -->
 <!-- data.sh_opera-version; Which Opera version will this ship in? -->
+<!-- data.member; What is the name of this property? -->
+<!-- data.is_readonly; Is ${data.member}! readonly? -->
+<!-- data.description; What is the description of ${data.member}!? -->
+<!-- data.syntax; What is the syntax for ${data.member}!? -->
+<!-- data.return; What is the return value for ${data.member}! -->
