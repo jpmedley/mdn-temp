@@ -3,20 +3,57 @@
 var fs = require('fs');
 
 var questions = [];
+var reToken = /\${(?:data\.)[^}]+}!/g;
 
 function getQuestion(forToken) {
 	if (forToken.startsWith('${')) {
 		forToken = forToken.slice(2, -2);
 	}
-	return getQuestions()
-		.then(questions => {
-			return questions.find(function(element, index, array){
-				return element[0] === forToken;
-			});
+	return getQuestionCatalog()
+	.then(questions => {
+		return questions.find(function(element, index, array){
+			return element[0] === forToken;
 		});
+	});
 }
 
-function getQuestions() {
+function getTokens(forFile) {
+	return new Promise(function(resolve, reject) {
+		var tokens = [];
+		fs.readFile(forFile, 'utf8', function(err, data) {
+			if (err) { reject(err); return; };
+			var matched = data.match(reToken);
+			if (matched) {
+				matched.forEach(function(token) {
+					if (!tokens.includes(token)) {
+						tokens.push(token);
+					};
+				});
+				resolve(tokens);
+			} else {
+				resolve(null);
+			};
+		});
+	});
+}
+
+function getQuestionSet(forFile) {
+	return new Promise((resolve,reject) => {
+			getTokens(forFile)
+				.then(tokens => {
+					var questionSet = [];
+					tokens.forEach(token => {
+						questionSet.push(getQuestion(token));
+					});
+					Promise.all(questionSet)
+						.then(questionSet => {
+							resolve(questionSet)
+						});
+				})
+	})
+}
+
+function getQuestionCatalog() {
 	return new Promise(function(resolve, reject) {
 		if (questions.length > 0) {
 			resolve(questions);
@@ -44,28 +81,7 @@ function getQuestions() {
 	});
 }
 
-function getTokens(forfile) {
-	return new Promise(function(resolve, reject) {
-		var tokens = [];
-		// var reToken = /\${([^}]+)}!/g;
-		var reToken = /\${(?:data\.)[^}]+}!/g;
-		fs.readFile(forfile, 'utf8', function(err, data) {
-			if (err) { reject(err); return; };
-			var matched = data.match(reToken);
-			if (matched) {
-				matched.forEach(function(token) {
-					if (!tokens.includes(token)) {
-						tokens.push(token);
-					};
-				});
-				resolve(tokens);
-			} else {
-				resolve(null);
-			};
-		});
-	});
-}
-
 exports.getQuestion = getQuestion;
-exports.getQuestions = getQuestions;
+exports.getQuestionCatalog = getQuestionCatalog;
 exports.getTokens = getTokens;
+exports.getQuestionSet = getQuestionSet;

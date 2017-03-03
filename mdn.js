@@ -4,13 +4,13 @@
 // mdn list [idl_file | idl_folder]
 
 var utils = require('./utils');
+var prompt = require('prompt');
 
 var interfaceTemplate = './templates/interface.marko';
 var propertyTemplate = './templates/property.marko';
 
 switch (process.argv[2]) {
 	case 'template':
-		process.argv.shift();
 		process.argv.shift();
 		process.argv.shift();
 		console.log(process.argv);
@@ -30,15 +30,15 @@ switch (process.argv[2]) {
 }
 
 function template(args) {
-	console.log(args[1]);
+	console.log(args[0]);
 	utils.getTokens(propertyTemplate)
-		.then(tokens => {
-			tokens.forEach(token => {
-				utils.getQuestion(token)
-					.then(question => {
-						//START HERE: Ask questions and process answers.
-						console.log(question);
-					})
+	.then(tokens => {
+		tokens.forEach(token => {
+			utils.getQuestion(token)
+			.then(question => {
+				//Ask questions and process answers. Blocked on utils item.
+				console.log(question);
 			})
-		});
+		})
+	});
 }
