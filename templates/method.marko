@@ -1,22 +1,16 @@
 <p>{{SeeCompatTable}}{{APIRef("${data.sh_overview-page-name}!")}}</p>
 
-<p>The <strong><code>${data.sh_interface}!</code></strong> interface of the the <a href="/en-US/docs/Web/API/${data.sh_overview-page-link}">${data.sh_overview-page-name}!</a> provides ${data.sh_description}!</p>
+<p>The <strong><code>${data.member}!</code></strong> ${data.is_readonly}! method of the {{domxref("${data.sh_interface}!")}} interface ${data.description}! </p>
 
+<h2 id="Syntax">Syntax</h2>
 
-<if(data.constructor.length)>
-  <h2 id="Constructor">Constructor</h2>
+<pre class="syntaxbox">${data.syntax}!</pre>
+
+<if(data.parameters.length)>
+  <h3 id="Parameters">Parameters</h3>
   <dl>
-   <dt>{{domxref("${data.sh_interface}!.${data.sh_interface}!()")}}</dt>
-   <dd>Creates a new <code>${data.sh_interface}!</code> object.</dd>
-  </dl>
-</if>
-
-
-<if(data.properties.length)>
-  <h2 id="Properties">Properties</h2>
-  <dl>
-    <for(property in data.properties)>
-      <dd>{{domxref("${data.sh_interface}!.${property}")}}</dd>
+    <for(parameter in data.parameters)>
+      <dd>{{domxref("${data.sh_interface}!.${parameter}")}}</dd>
       <dt>TBD</dt>
     </for>
   <dl>
@@ -25,30 +19,15 @@
   <p>None.</p>
 </else>
 
-<if(data.events.length)>
-  <h3 id="Event_handlers">Event handlers</h3>
-  <dl>
-    <for(event in data.events)>
-      <dd>{{domxref("${data.sh_interface}!.${event}")}}</dd>
-      <dt>TBD</dt>
-    </for>
-  <dl>
-</if>
 
-<if(data.methods.length)>
-  <h2 id="Methods">Methods</h2>
-  <dl>
-    <for(method in data.methods)>
-      <dd>{{domxref("${data.sh_interface}!.${method}")}}</dd>
-      <dt>TBD</dt>
-    </for>
-  <dl>
-</if>
-<else>
-  <p>None.</p>
-</else>
+<h3 id="Returns">Returns</h3>
 
-<h2 id="Examples">Examples</h2>
+<p>${data.return}</p>
+
+<h3>Exceptions</h3>
+
+<h2>Example</h2>
+
 
 <pre class="brush: js">// TBD</pre>
 
@@ -122,4 +101,3 @@
  </tbody>
 </table>
 </div>
-
