@@ -13,6 +13,7 @@ switch (process.argv[2]) {
 	case 'template':
 		process.argv.shift();
 		process.argv.shift();
+		process.argv.shift();
 		console.log(process.argv);
 		template(process.argv);
 		break;
@@ -30,15 +31,25 @@ switch (process.argv[2]) {
 }
 
 function template(args) {
+	// START HERE: Start fleshing out processing of actual interface items.
 	console.log(args[0]);
-	utils.getTokens(propertyTemplate)
-	.then(tokens => {
-		tokens.forEach(token => {
-			utils.getQuestion(token)
-			.then(question => {
-				//Ask questions and process answers. Blocked on utils item.
-				console.log(question);
-			})
-		})
-	});
+	let current = ''
+	for (let i = 0; i < args.length; i++) {
+		if (args[i].startsWith('-')) {
+			current = args[i];
+			console.log("processing for " + current);
+			continue;
+		}
+		switch (current) {
+			case '-i':
+				console.log(args[i]);
+				break;
+			case '-m':
+				console.log(args[i]);
+				break;
+			case '-p':
+				console.log(args[i]);
+				break;
+		}
+	}
 }
