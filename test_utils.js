@@ -32,8 +32,8 @@ function test_getQuestionCatalog() {
 }
 
 function test_getTokens() {
-	// var temp_path = 'templates/interface.marko';
-	var temp_path = 'templates/property.marko';
+	var temp_path = 'templates/interface.marko';
+	// var temp_path = 'templates/property.marko';
 	utils.getTokens(temp_path)
 	.then(tokens => {
 		console.log('\nTesting getTokens()');
@@ -46,11 +46,11 @@ function test_getTokens() {
 	});
 }
 
-function test_getQuestionSet() {
+function test_getQuestionTokenPairs() {
 	var temp_path = 'templates/property.marko';
-	utils.getQuestionSet(temp_path)
+	utils.getQuestionTokenPairs(temp_path)
 	.then(questions => {
-		console.log('\nTesting getQuestionSet()');
+		console.log('\nTesting getQuestionTokenPairs()');
 		for (var q in questions) {
 			console.log(questions[q]);
 		}
@@ -60,6 +60,17 @@ function test_getQuestionSet() {
 	});
 }
 
+function test_getQuestionSet() {
+	var temp_path = 'templates/property.marko';
+	utils.getQuestionSet(temp_path)
+		.then(questions => {
+			console.log('\nTesting getQuestionSet()');
+			for (var q in questions) {
+				console.log(questions[q]);
+			}
+		})
+}
+
 console.log();
 console.log("Starting tests.");
 test_getQuestion();
@@ -67,5 +78,7 @@ console.log();
 test_getQuestionCatalog();
 console.log();
 test_getTokens();
+console.log();
+test_getQuestionTokenPairs();
 console.log();
 test_getQuestionSet();

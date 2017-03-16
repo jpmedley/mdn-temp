@@ -38,12 +38,31 @@ function getTokens(forFile) {
 }
 
 function getQuestionSet(forFile) {
+	return new Promise(function(resolve,reject) {
+		return getQuestionTokenPairs(forFile)
+			.then(pairs => {
+				var qtLists = [[],[]];
+				for (var p in pairs) {
+					qtLists[0].push(pairs[p][0]);
+					qtLists[1].push(pairs[p][1])
+				}
+				resolve(qtLists);
+			});
+	})
+}
+
+function getQuestionTokenPairs(forFile) {
 	return new Promise((resolve,reject) => {
 			getTokens(forFile)
 				.then(tokens => {
 					var questionSet = [];
 					tokens.forEach(token => {
-						questionSet.push(getQuestion(token));
+						// [[a1,a2],[b1,b2],[c1,c2]]
+						// ques = [a1,a2]
+						// [[a1,b1,c1],[a2,b2,c2]]
+						var ques = getQuestion(token);
+						questionSet.push(ques);
+						// questionSet.push(getQuestion(token));
 					});
 					Promise.all(questionSet)
 						.then(questionSet => {
@@ -83,5 +102,6 @@ function getQuestionCatalog() {
 
 exports.getQuestion = getQuestion;
 exports.getQuestionCatalog = getQuestionCatalog;
-exports.getTokens = getTokens;
 exports.getQuestionSet = getQuestionSet;
+exports.getQuestionTokenPairs = getQuestionTokenPairs;
+exports.getTokens = getTokens;
