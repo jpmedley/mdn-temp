@@ -4,7 +4,7 @@
 <!-- data.events; Does this interface have any event handlers? Type a comma-separated list. -->
 <!-- data.is_readonly; Is ${data.member}! readonly? -->
 <!-- data.member; What is the name of this property? -->
-<!-- data.member-link; What is the path anchor for this inverface in the W3C spec? -->
+<!-- data.member-link; What is the path anchor for this interface in the W3C spec? -->
 <!-- data.methods; Does this interface have any methods? Type a comma-separated list. -->
 <!-- data.properties; Does this interface have any properties? Type a comma-separated list. -->
 <!-- data.return; What is the return value for ${data.member}! -->

@@ -33,7 +33,6 @@ switch (process.argv[2]) {
 }
 
 function template(args) {
-	// START HERE: Start fleshing out processing of actual interface items.
 	let current = ''
 	for (let i = 0; i < args.length; i++) {
 		if (args[i].startsWith('-')) {
@@ -56,7 +55,6 @@ function template(args) {
 	}
 }
 
-// START HERE: This doesn't really work. Find out why.
 function createFile(template, name) {
 	// Get template for given type
 	var template = TEMPLATES + template + ".marko";
@@ -64,21 +62,14 @@ function createFile(template, name) {
 	utils.getQuestionSet(template)
 		.then(questions => {
 			prompt.start();
-			prompt.get(questions, function(err, result) {
+			prompt.get(questions[1], function(err, result) {
+				// START HERE: How to I connect result with my template tokens?
+				// * questions[] is out of scope at this point.
+				// * Can use prompt.history() this b/c prompt.get() is async.
 				for (var r in result) {
 					console.log(r + ": " + result[r]);
 				}
 			})
-
-
-			// for (var q in questions) {
-			// 	prompt.start();
-			// 	prompt.get(q, function(err, result) {
-			// 		for (var r in result) {
-			// 			console.log(r + result[r]);
-			// 		}
-			// 	})
-			// }
 		})
 	// Create the stream for output
 	// Output the result
