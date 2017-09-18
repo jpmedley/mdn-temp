@@ -68,7 +68,7 @@ function createFile(template, name) {
 				// START HERE: How to I connect result with my template tokens?
 				// * questions[] is out of scope at this point.
 				// * Can use prompt.history() this b/c prompt.get() is async.
-				// 3/31: May have to abandon the prompt module. The callback 
+				// 3/31: May have to abandon the prompt module. The callback
 				//   puts me in a scope/access dead end I can't get out of.
 				for (var r in result) {
 					console.log(r + ": " + result[r]);
