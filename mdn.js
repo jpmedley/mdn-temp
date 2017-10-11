@@ -1,5 +1,5 @@
 'use strict';
-// mdn template [-i interface] [-m method method] [-p property property]
+// mdn template [-i interface] [-m method method] [-p property property] [-c]
 
 require('marko/node-require');
 
@@ -15,6 +15,8 @@ switch (process.argv[2]) {
 		process.argv.shift();
 		process.argv.shift();
 		process.argv.shift();
+		// Ask if user needs an interface page. If no, remove from args.
+		// Later merge with walker and ping the interface for the answer.
 		console.log(process.argv);
 		template(process.argv);
 		break;

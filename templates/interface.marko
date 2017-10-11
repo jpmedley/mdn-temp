@@ -1,13 +1,13 @@
-<p>{{SeeCompatTable}}{{APIRef("${data.sh_overview-page-name}!")}}</p>
+<p>{{SeeCompatTable}}{{APIRef("${data.shared.overview-page-name}!")}}</p>
 
-<p>The <strong><code>${data.sh_interface}!</code></strong> interface of the the <a href="/en-US/docs/Web/API/${data.sh_overview-page-link}">${data.sh_overview-page-name}!</a> provides ${data.description}!</p>
+<p>The <strong><code>${data.shared.interface}!</code></strong> interface of the the <a href="/en-US/docs/Web/API/${data.shared.overview-page-link}">${data.shared.overview-page-name}!</a> provides ${data.description}!</p>
 
 
 <if(data.constructor.length)>
   <h2 id="Constructor">Constructor</h2>
   <dl>
-   <dt>{{domxref("${data.sh_interface}!.${data.sh_interface}!()")}}</dt>
-   <dd>Creates a new <code>${data.sh_interface}!</code> object.</dd>
+   <dt>{{domxref("${data.shared.interface}!.${data.shared.interface}!()")}}</dt>
+   <dd>Creates a new <code>${data.shared.interface}!</code> object.</dd>
   </dl>
 </if>
 
@@ -16,7 +16,7 @@
   <h2 id="Properties">Properties</h2>
   <dl>
     <for(property in data.properties)>
-      <dd>{{domxref("${data.sh_interface}!.${property}")}}</dd>
+      <dd>{{domxref("${data.shared.interface}!.${property}")}}</dd>
       <dt>TBD</dt>
     </for>
   <dl>
@@ -29,7 +29,7 @@
   <h3 id="Event_handlers">Event handlers</h3>
   <dl>
     <for(event in data.events)>
-      <dd>{{domxref("${data.sh_interface}!.${event}")}}</dd>
+      <dd>{{domxref("${data.shared.interface}!.${event}")}}</dd>
       <dt>TBD</dt>
     </for>
   <dl>
@@ -39,7 +39,7 @@
   <h2 id="Methods">Methods</h2>
   <dl>
     <for(method in data.methods)>
-      <dd>{{domxref("${data.sh_interface}!.${method}")}}</dd>
+      <dd>{{domxref("${data.shared.interface}!.${method}")}}</dd>
       <dt>TBD</dt>
     </for>
   <dl>
@@ -62,8 +62,8 @@
    <th scope="col">Comment</th>
   </tr>
   <tr>
-   <td>{{SpecName('${data.sh_mdn-spec-name}!','${data.member-link}!','${data.sh_interface}!')}}</td>
-   <td>{{Spec2('${data.sh_mdn-spec-name}!')}}</td>
+   <td>{{SpecName('${data.shared.mdn-spec-name}!','${data.member-link}!','${data.shared.interface}!')}}</td>
+   <td>{{Spec2('${data.shared.mdn-spec-name}!')}}</td>
    <td>Initial definition.</td>
   </tr>
  </tbody>
@@ -86,10 +86,10 @@
   </tr>
   <tr>
    <td>Basic support</td>
-   <td>{{CompatChrome(${data.sh_chrome-version}!)}}</td>
+   <td>{{CompatChrome(${data.shared.chrome-version}!)}}</td>
    <td>{{CompatUnknown}}</td>
    <td>{{CompatUnknown}}</td>
-   <td>{{CompatOpera(${data.sh_opera-version}!)}}</td>
+   <td>{{CompatOpera(${data.shared.opera-version}!)}}</td>
    <td>{{CompatUnknown}}</td>
   </tr>
  </tbody>
@@ -111,15 +111,14 @@
   </tr>
   <tr>
    <td>Basic support</td>
-   <td>{{CompatChrome(${data.sh_chrome-version}!)}}</td>
-   <td>{{CompatChrome(${data.sh_chrome-version}!)}}</td>
+   <td>{{CompatChrome(${data.shared.chrome-version}!)}}</td>
+   <td>{{CompatChrome(${data.shared.chrome-version}!)}}</td>
    <td>{{CompatUnknown}}</td>
    <td>{{CompatUnknown}}</td>
    <td>{{CompatUnknown}}</td>
-   <td>{{CompatOperaMobile(${data.sh_opera-version}!)}}</td>
+   <td>{{CompatOperaMobile(${data.shared.opera-version}!)}}</td>
    <td>{{CompatUnknown}}</td>
   </tr>
  </tbody>
 </table>
 </div>
-

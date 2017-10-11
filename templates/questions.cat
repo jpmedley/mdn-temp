@@ -8,10 +8,10 @@
 <!-- data.methods; Does this interface have any methods? Type a comma-separated list. -->
 <!-- data.properties; Does this interface have any properties? Type a comma-separated list. -->
 <!-- data.return; What is the return value for ${data.member}! -->
-<!-- data.sh_chrome-version; Which Chrome version will this ship in? -->
-<!-- data.sh_interface; what is the formal name of the interface? -->
-<!-- data.sh_mdn-spec-name; What is the name passed to the MDN SpecName() and spec2() macros? -->
-<!-- data.sh_opera-version; Which Opera version will this ship in? -->
-<!-- data.sh_overview-page-link; What is the slug of the MDN overview page? -->
-<!-- data.sh_overview-page-name; What is the name of the MDN overview page? -->
+<!-- data.shared.chrome-version; Which Chrome version will this ship in? -->
+<!-- data.shared.interface; what is the formal name of the interface? -->
+<!-- data.shared.mdn-spec-name; What is the name passed to the MDN SpecName() and spec2() macros? -->
+<!-- data.shared.opera-version; Which Opera version will this ship in? -->
+<!-- data.shared.overview-page-link; What is the slug of the MDN overview page? -->
+<!-- data.shared.overview-page-name; What is the name of the MDN overview page? -->
 <!-- data.syntax; What is the syntax for ${data.member}!? -->
