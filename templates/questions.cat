@@ -10,6 +10,7 @@
 <!-- data.return; What is the return value for ${data.member}! -->
 <!-- data.shared.chrome-version; Which Chrome version will this ship in? -->
 <!-- data.shared.interface; what is the formal name of the interface? -->
+<!-- data.shared.interface-description; What is the description of ${data.shared.interface}!? -->
 <!-- data.shared.mdn-spec-name; What is the name passed to the MDN SpecName() and spec2() macros? -->
 <!-- data.shared.opera-version; Which Opera version will this ship in? -->
 <!-- data.shared.overview-page-link; What is the slug of the MDN overview page? -->
