@@ -1,14 +1,14 @@
 'use strict';
 
 
-function QuestionSet() {
+function SharedQuestions() {
   this._questions = [];
   this.length = () => { return this._questions.length; }
 }
 
-QuestionSet.prototype.constructor = QuestionSet;
+SharedQuestions.prototype.constructor = SharedQuestions;
 
-QuestionSet.prototype.add = function(question, answer = '') {
+SharedQuestions.prototype.add = function(question, answer = '') {
   let storedQuestion;
   storedQuestion = this._questions.find((element) => {
     if (element.tag == question.tag) {
@@ -20,11 +20,9 @@ QuestionSet.prototype.add = function(question, answer = '') {
     this._questions.push(storedQuestion);
   }
   storedQuestion.answer = answer;
-  console.log(storedQuestion);
-  console.log(this._questions.length);
 }
 
-QuestionSet.prototype.getAnswer = function(tag) {
+SharedQuestions.prototype.getAnswer = function(tag) {
   let rec = this.getRecord(tag);
   if (rec) {
     return rec.answer;
@@ -34,8 +32,7 @@ QuestionSet.prototype.getAnswer = function(tag) {
   }
 }
 
-// QUESTION: Why doesn't this return a record? It does in add().
-QuestionSet.prototype.getRecord = function(tag) {
+SharedQuestions.prototype.getRecord = function(tag) {
   let storedQuestion;
   storedQuestion = this._questions.find((element) => {
     if (element.tag == tag) {
@@ -45,4 +42,4 @@ QuestionSet.prototype.getRecord = function(tag) {
   return storedQuestion;
 }
 
-exports.QuestionSet = QuestionSet;
+exports.SharedQuestions = SharedQuestions;
