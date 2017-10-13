@@ -1,7 +1,9 @@
 'use strict';
 
 
-function QuestionSet() {
+function QuestionSet(name='') {
+  this._name = name;
+  this.name = () => { return this._name; }
   this._questions = [];
   this.length = () => { return this._questions.length; }
 }

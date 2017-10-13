@@ -21,6 +21,8 @@ function Catalog() {
 }
 
 Catalog.prototype.get = function(key) {
+  if (key.startsWith('${')) { key = key.slice(2); }
+  if (key.endsWith('};')) { key = key.slice(0, -2); }
   return this._questions.find((element) => {
     if (element.tag == key.trim()) {
       return element;

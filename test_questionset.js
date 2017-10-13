@@ -13,8 +13,8 @@ const TEST_TAGS = [
 
 const cat = new catalog.Catalog();
 
-function _testSetup() {
-  return new questionset.QuestionSet();
+function _testSetup(options={}) {
+  return new questionset.QuestionSet(options.memberName);
 }
 
 function testAddQuestion() {
@@ -26,6 +26,12 @@ function testAddQuestion() {
   assert.equal(set.length(),1);
 }
 
+function testConstructorParams() {
+  let options = { memberName: "shootFoot()" }
+  const set = _testSetup(options);
+  assert.equal(set.name(), "shootFoot()");
+}
+
 function testGetAnswer() {
   const set = _testSetup();
   const test = cat.get(TEST_SINGLE_TAG);
@@ -34,4 +40,5 @@ function testGetAnswer() {
 }
 
 testAddQuestion();
+testConstructorParams();
 testGetAnswer();
