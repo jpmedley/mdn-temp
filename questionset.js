@@ -1,14 +1,14 @@
 'use strict';
 
 
-function SharedQuestions() {
+function QuestionSet() {
   this._questions = [];
   this.length = () => { return this._questions.length; }
 }
 
-SharedQuestions.prototype.constructor = SharedQuestions;
+QuestionSet.prototype.constructor = QuestionSet;
 
-SharedQuestions.prototype.add = function(question, answer = '') {
+QuestionSet.prototype.add = function(question, answer = '') {
   let storedQuestion;
   storedQuestion = this._questions.find((element) => {
     if (element.tag == question.tag) {
@@ -22,7 +22,7 @@ SharedQuestions.prototype.add = function(question, answer = '') {
   storedQuestion.answer = answer;
 }
 
-SharedQuestions.prototype.getAnswer = function(tag) {
+QuestionSet.prototype.getAnswer = function(tag) {
   let rec = this.getRecord(tag);
   if (rec) {
     return rec.answer;
@@ -32,7 +32,7 @@ SharedQuestions.prototype.getAnswer = function(tag) {
   }
 }
 
-SharedQuestions.prototype.getRecord = function(tag) {
+QuestionSet.prototype.getRecord = function(tag) {
   let storedQuestion;
   storedQuestion = this._questions.find((element) => {
     if (element.tag == tag) {
@@ -42,4 +42,4 @@ SharedQuestions.prototype.getRecord = function(tag) {
   return storedQuestion;
 }
 
-exports.SharedQuestions = SharedQuestions;
+exports.QuestionSet = QuestionSet;

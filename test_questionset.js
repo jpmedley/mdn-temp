@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const sharedquestions = require('./sharedquestions');
+const questionset = require('./questionset');
 const catalog = require('./questioncatalog');
 
 const TEST_ANSWER = 'Mr. Spock';
@@ -14,7 +14,7 @@ const TEST_TAGS = [
 const cat = new catalog.Catalog();
 
 function _testSetup() {
-  return new sharedquestions.SharedQuestions();
+  return new questionset.QuestionSet();
 }
 
 function testAddQuestion() {
