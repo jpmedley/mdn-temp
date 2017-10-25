@@ -4,6 +4,7 @@ logs
 npm-debug.log*
 
 # Runtime data
+try.js
 pids
 *.pid
 *.seed
