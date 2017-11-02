@@ -18,11 +18,12 @@ Manager.prototype.constructor = Manager;
 
 Manager.prototype._getQuestions = function(forMembers) {
   const members = forMembers.split('-');
+  // Assumes '' is always the first one. Dangerous.
   if (members[0] == '') { members.shift(); }
-  const interfaceName = members.find((member) => {
-    return member.charAt(0) == "i";
-  })[1];
+  if (!members[0].charAt(0) == 'i') { throw "The first flag must be '-i'."; }
+  const interfaceName = (members[0].split(' '))[1];
   members.forEach((type) => {
+    let types;
     switch (type.charAt(0)) {
       case 'i':
         this._qustionSets.push(this._getQuestionSet(interfaceName, "interface", this._shared));

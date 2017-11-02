@@ -3,7 +3,7 @@
 const assert = require('assert');
 const qman = require('./questionmanager');
 
-const TEST_ARGS = '-i FootGun -c -m load() fire() -p bulletCount -e onfire onload';
+const TEST_ARGS = '-i FootGun -c -e FireEvent LoadEvent -h onfire onload -m load() fire() -p bulletCount caliber';
 
 function _testSetup() {
   return new qman.Manager(TEST_ARGS);
