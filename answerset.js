@@ -1,20 +1,20 @@
 'use strict';
 
 
-function QuestionSet(name='') {
+function AnswerSet(name='') {
   this._name = name;
   this.name = () => { return this._name; }
   this._questions = [];
   this.length = () => { return this._questions.length; }
 }
 
-QuestionSet.prototype.constructor = QuestionSet;
+AnswerSet.prototype.constructor = AnswerSet;
 
-QuestionSet.prototype.add = function(question, answer = '') {
+AnswerSet.prototype.add = function(question, answer = '') {
   let storedQuestion;
-  storedQuestion = this._questions.find((element) => {
-    if (element.tag == question.tag) {
-      return element;
+  storedQuestion = this._questions.find((found) => {
+    if (found.tag == question.tag) {
+      return found;
     }
   });
   if (!storedQuestion) {
@@ -24,7 +24,7 @@ QuestionSet.prototype.add = function(question, answer = '') {
   storedQuestion.answer = answer;
 }
 
-QuestionSet.prototype.getAnswer = function(tag) {
+AnswerSet.prototype.getAnswer = function(tag) {
   let rec = this.getRecord(tag);
   if (rec) {
     return rec.answer;
@@ -34,14 +34,14 @@ QuestionSet.prototype.getAnswer = function(tag) {
   }
 }
 
-QuestionSet.prototype.getRecord = function(tag) {
+AnswerSet.prototype.getRecord = function(tag) {
   let storedQuestion;
-  storedQuestion = this._questions.find((element) => {
-    if (element.tag == tag) {
-      return element;
+  storedQuestion = this._questions.find((found) => {
+    if (found.tag == tag) {
+      return found;
     }
   });
   return storedQuestion;
 }
 
-exports.QuestionSet = QuestionSet;
+exports.AnswerSet = AnswerSet;

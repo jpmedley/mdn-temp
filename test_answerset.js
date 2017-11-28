@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const questionset = require('./questionset');
+const answerset = require('./answerset');
 const catalog = require('./questioncatalog');
 
 const TEST_ANSWER = 'Mr. Spock';
@@ -14,7 +14,7 @@ const TEST_TAGS = [
 const cat = new catalog.Catalog();
 
 function _testSetup(options={}) {
-  return new questionset.QuestionSet(options.memberName);
+  return new answerset.AnswerSet(options.memberName);
 }
 
 function testAddQuestion() {
