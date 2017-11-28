@@ -6,7 +6,7 @@
   "dependencies": {},
   "devDependencies": {},
   "scripts": {
-    "test": "test"
+    "test": "node test_questioncatalog.js && node test_questionManager.js && node test_questionset.js"
   },
   "repository": {
     "type": "git",
