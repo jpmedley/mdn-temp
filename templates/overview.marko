@@ -1,0 +1,35 @@
+<p>{{SeeCompatTable}}</p>
+
+<p>"${data.overview}!"</p>
+
+<h2>"${data.shared.api-name}!" concepts and usage</h2>
+
+<if(data.interfaces.length)>
+  <dl>
+    <for(interface in data.interfaces)>
+      <dd>{{domxref("${interface.name}!")}}</dd>
+      <dt>"${interface.description}!"</dt>
+    </for>
+  </dl>
+</if>
+
+<h2 id="Specifications">Specifications</h2>
+
+<table class="standard-table">
+ <tbody>
+  <tr>
+   <th scope="col">Specification</th>
+   <th scope="col">Status</th>
+   <th scope="col">Comment</th>
+  </tr>
+  <tr>
+   <td>{{SpecName('${data.shared.mdn-spec-name}!')}}</td>
+   <td>{{Spec2('${data.shared.mdn-spec-name}!')}}</td>
+   <td>Initial definition.</td>
+  </tr>
+ </tbody>
+</table>
+
+<h2 id="Browser_Compatibility">Browser Compatibility</h2>
+
+<div>{{CompatibilityTable}}</div>
