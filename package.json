@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "Template builder for rapidly creating MDN pages.",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "marko": "^4.7.1",
+    "prompt": "^1.0.0"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "node test_questioncatalog.js && node test_questionManager.js && node test_questionset.js"

@@ -23,5 +23,7 @@ function verifyTokenStripping() {
   assert.equal(question.tag, TEST_KEY);
 }
 
+//ToDo: Add test for item missing from quetions.json.
+
 verifyMemberStructure();
 verifyTokenStripping();

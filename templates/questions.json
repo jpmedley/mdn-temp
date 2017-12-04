@@ -13,7 +13,7 @@
       "tag":"constructor"
     },
     {
-      "question":"What is the description of data.member?",
+      "question":"What is the description of member?",
       "type":"string",
       "pattern":"",
       "message":"",
@@ -47,6 +47,30 @@
       "required":false,
       "before":"",
       "tag":"events"
+    },
+    {
+      "question":"What is the name of an interface?",
+      "type":"array",
+      "pattern":"",
+      "message":"",
+      "hidden":false,
+      "replace":"*",
+      "default":"",
+      "required":true,
+      "before":"",
+      "tag":"shared.interface.name"
+    },
+    {
+      "question":"Enter a one or two line description of the interface",
+      "type":"array",
+      "pattern":"",
+      "message":"",
+      "hidden":false,
+      "replace":"*",
+      "default":"",
+      "required":true,
+      "before":"",
+      "tag":"shared.interface.description"
     },
     {
       "question":"Is member read only? Yes or No?",
@@ -95,6 +119,18 @@
       "required":false,
       "before":"",
       "tag":"methods"
+    },
+    {
+      "question":"Enter a one or two line description for the API.",
+      "type":"string",
+      "pattern":"",
+      "message":"",
+      "hidden":false,
+      "replace":"*",
+      "default":"",
+      "required":true,
+      "before":"",
+      "tag":"overview"
     },
     {
       "question":"Does this interface have any properties? Please enter a comma-separated list.",

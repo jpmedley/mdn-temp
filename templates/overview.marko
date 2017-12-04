@@ -6,9 +6,9 @@
 
 <if(data.interfaces.length)>
   <dl>
-    <for(interface in data.interfaces)>
-      <dd>{{domxref("${interface.name}!")}}</dd>
-      <dt>"${interface.description}!"</dt>
+    <for(interface in interfaces)>
+      <dd>{{domxref("${shared.interface.name}!")}}</dd>
+      <dt>"${shared.interface.description}!"</dt>
     </for>
   </dl>
 </if>

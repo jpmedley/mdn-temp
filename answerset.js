@@ -22,6 +22,7 @@ AnswerSet.prototype.add = function(question, answer = '') {
     this._questions.push(storedQuestion);
   }
   storedQuestion.answer = answer;
+  return storedQuestion;
 }
 
 AnswerSet.prototype.getAnswer = function(tag) {
@@ -34,6 +35,7 @@ AnswerSet.prototype.getAnswer = function(tag) {
   }
 }
 
+// rec = { question: "question", answer: "answer", tag: "tag" }
 AnswerSet.prototype.getRecord = function(tag) {
   let storedQuestion;
   storedQuestion = this._questions.find((found) => {

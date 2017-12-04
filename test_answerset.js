@@ -39,6 +39,13 @@ function testGetAnswer() {
   assert.equal(set.getAnswer(TEST_SINGLE_TAG), TEST_ANSWER);
 }
 
+function testNoAnswerYet() {
+  const set = _testSetup();
+  const test = cat.get('data.spock');
+  assert.equal(set.getAnswer(test), undefined);
+}
+
 testAddQuestion();
 testConstructorParams();
 testGetAnswer();
+testNoAnswerYet();

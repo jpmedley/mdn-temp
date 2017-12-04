@@ -1,79 +1,86 @@
 'use strict';
 
+require('marko/node-require');
 const fs = require('fs');
 const path = require('path');
+const prompt = require('prompt');
 const questioncatalog = require('./questioncatalog');
-const questionset = require('./questionset');
+const answerset = require('./answerset');
+
+const constructor_t = require('./templates/constructor.marko');
+const event_t = require('./templates/event.marko');
+const handler_t = require('./templates/handler.marko');
+const interface_t = require('./templates/interface.marko');
+const method_t = require('./templates/method.marko');
+const overview_t = require('./templates/overview.marko');
+const property_t = require('./templates/property.marko');
 
 const reToken = /\${[^}]+}!/g;
 const catalog = new questioncatalog.Catalog();
 
-function Manager(forMembers) {
-  this._qustionSets = [];
-  this._shared = new questionset.QuestionSet();
-  this._getQuestions(forMembers);
+function Manager() {
+  this._catalog = new questioncatalog.Catalog();
+  this.answerSet = new answerset.AnswerSet();
+  this._template;
+  this._schemaMembers = "";
 }
 
 Manager.prototype.constructor = Manager;
 
-Manager.prototype._getQuestions = function(forMembers) {
-  const members = forMembers.split('-');
-  // Assumes '' is always the first one. Dangerous.
-  if (members[0] == '') { members.shift(); }
-  if (!members[0].charAt(0) == 'i') { throw "The first flag must be '-i'."; }
-  const interfaceName = (members[0].split(' '))[1];
-  members.forEach((type) => {
-    let types;
-    switch (type.charAt(0)) {
-      case 'i':
-        this._qustionSets.push(this._getQuestionSet(interfaceName, "interface", this._shared));
-        break;
-      case 'c':
-        let constructorName = interfaceName + "()";
-        this._qustionSets.push(this._getQuestionSet(constructorName, "constructor", this._shared));
-        break;
-      case 'e':
-        types = type.slice(1).split(' ');
-        types.forEach((type)=> {
-          this._qustionSets.push(this._getQuestionSet(type, "event", this._shared));
-        })
-        break;
-      case 'm':
-        types = type.slice(1).split(' ');
-        types.forEach((type)=> {
-          this._qustionSets.push(this._getQuestionSet(type, "method", this._shared));
-        })
-        break;
-      case 'p':
-        types = type.slice(1).split(' ');
-        types.forEach((type)=> {
-          this._qustionSets.push(this._getQuestionSet(type, "property", this._shared));
-        })
-        break;
-    }
-  });
+Manager.prototype._addToSchema = function(template) {
+  if (this._schemaMembers != '') { this._schemaMembers += "," }
+  this._schemaMembers += '"' + template.question + '": { "required": "' + template.required + '","tag": "' + template.tag + '"" }';
 }
 
-Manager.prototype._getQuestionSet = function(forMember, templateName, shared) {
-  let newSet = null;
-  const aPath = path.join("templates", (templateName + '.marko'));
-  const template = fs.readFileSync(aPath, 'utf8');
-  const tokens = template.match(reToken);
-  if (tokens) {
-    newSet = new questionset.QuestionSet(forMember);
+Manager.prototype._schemaToJSON = function() {
+  let schema = '{ "properties": {' + this._schemaMembers + '} }';
+  return JSON.parse(schema);
+}
+
+Manager.prototype.getAnswers = function(forPageType) {
+  if (this._template) {
+    // Throw error. Last set of answers not written to file.
+  }
+  const templatePath = path.join("templates", (forPageType + ".marko"));
+  this._template = fs.readFileSync(templatePath, 'utf8');
+  const tokens = (() => {
+    let uniqueTokens = new Array();
+    let tokens = this._template.match(reToken);
     tokens.forEach((token) => {
-      let question = catalog.get(token);
-      if (token.includes('data.shared')) {
-        // shared.add(question);
-        console.log(question);
-      }
-      else {
-        // newSet.add(question);
-        console.log(question);
+      if (!uniqueTokens.includes(token)) {
+        uniqueTokens.push(token);
       }
     })
+    return uniqueTokens;
+  })();
+  if (tokens) {
+    tokens.forEach((token) => {
+      let question = this._catalog.get(token);
+      let answerObj = this.answerSet.getRecord(question.tag) || question;
+      this._addToSchema(answerObj);
+    });
+    this._askQuestions();
   }
-  return newSet;
+}
+
+Manager.prototype.writeFile = function(named) {
+  const outPath = path.join("out", (named + ".html"))
+  // Do the substitution work.
+  // Save the file.
+  this._template = undefined;
+}
+
+Manager.prototype._askQuestions = function() {
+  prompt.start();
+  let jschema = this._schemaToJSON();
+  prompt.get(jschema, (err, result) => {
+    this.answerSet.add(result, '');
+  });
+  prompt.stop = () => {
+    if (prompt.stopped || !prompt.started) {
+      return;
+    }
+  }
 }
 
 exports.Manager = Manager;
