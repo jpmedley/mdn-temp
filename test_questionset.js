@@ -5,8 +5,8 @@ const questionset = require('./questionset');
 const catalog = require('./questioncatalog');
 
 const TEST_ANSWER = 'Mr. Spock';
-const TEST_SINGLE_TAG = 'data.constructor';
-const TEST_SHARED_TAG = 'data.shared.chrome-version';
+const TEST_SINGLE_TAG = 'constructor';
+const TEST_SHARED_TAG = 'shared.chrome-version';
 const TEST_TAGS = [
   TEST_SINGLE_TAG, TEST_SHARED_TAG
 ]

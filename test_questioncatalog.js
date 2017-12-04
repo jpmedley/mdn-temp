@@ -3,7 +3,7 @@
 const assert = require('assert');
 const catalog = require('./questioncatalog');
 
-const TEST_KEY = 'data.shared.opera-version'
+const TEST_KEY = 'shared.opera-version'
 
 function _testSetup() {
   return new catalog.Catalog();
@@ -11,7 +11,7 @@ function _testSetup() {
 
 function verifyMemberStructure() {
   const catalog = _testSetup();
-  const question = catalog.get("data.description");
+  const question = catalog.get("description");
   assert.equal((typeof question), "object");
   assert.equal((typeof question.tag), "string");
   assert.equal((typeof question.question), "string");

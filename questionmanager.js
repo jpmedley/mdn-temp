@@ -5,7 +5,7 @@ const path = require('path');
 const questioncatalog = require('./questioncatalog');
 const questionset = require('./questionset');
 
-const reToken = /\${(?:data\.)[^}]+}!/g;
+const reToken = /\${[^}]+}!/g;
 const catalog = new questioncatalog.Catalog();
 
 function Manager(forMembers) {
