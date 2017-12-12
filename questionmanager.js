@@ -7,6 +7,7 @@ const prompt = require('prompt');
 const questioncatalog = require('./questioncatalog');
 const answerset = require('./answerset');
 
+// It looks like compiling these blows the stack somewhere in interface.
 const constructor_t = require('./templates/constructor.marko');
 const event_t = require('./templates/event.marko');
 const handler_t = require('./templates/handler.marko');
