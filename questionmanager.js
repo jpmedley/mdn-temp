@@ -8,14 +8,15 @@ const questioncatalog = require('./questioncatalog');
 const answerset = require('./answerset');
 
 // It looks like compiling these blows the stack somewhere in interface.
-const constructor_t = require('./templates/constructor.marko');
-const event_t = require('./templates/event.marko');
-const handler_t = require('./templates/handler.marko');
-const interface_t = require('./templates/interface.marko');
-const method_t = require('./templates/method.marko');
-const overview_t = require('./templates/overview.marko');
-const property_t = require('./templates/property.marko');
+// const constructor_t = require('./templates/constructor.marko');
+// const event_t = require('./templates/event.marko');
+// const handler_t = require('./templates/handler.marko');
+// const interface_t = require('./templates/interface.marko');
+// const method_t = require('./templates/method.marko');
+// const overview_t = require('./templates/overview.marko');
+// const property_t = require('./templates/property.marko');
 
+const TEMPS = './templates';
 const reToken = /\${[^}]+}!/g;
 const catalog = new questioncatalog.Catalog();
 
@@ -38,11 +39,11 @@ Manager.prototype._schemaToJSON = function() {
   return JSON.parse(schema);
 }
 
-Manager.prototype.getAnswers = function(forPageType) {
+Manager.prototype.getAnswers = function(pageType, memberName) {
   if (this._template) {
     // Throw error. Last set of answers not written to file.
   }
-  const templatePath = path.join("templates", (forPageType + ".marko"));
+  const templatePath = path.join("templates", (pageType + ".marko"));
   this._template = fs.readFileSync(templatePath, 'utf8');
   const tokens = (() => {
     let uniqueTokens = new Array();
